@@ -20,14 +20,14 @@ class AddressController extends Controller
         return $adress;
     }
 
-    public function addUser(Request $r) {
-        $new_address = [
-            "address" => $r->address,
-        ];
+    public function addAdress(Request $r) {
+        $new_address = $r->only(['address']);
 
-        $adress = new Address($new_address);
-        $adress->save();
-        return $adress;
+        $address = Address::create($new_address);
+
+        return $address;
     }
+
+   
     
 }

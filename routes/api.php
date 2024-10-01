@@ -7,9 +7,11 @@ use App\Http\Controllers\AddressController;
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('users/{id}', [UserController::class, 'findOne']);
-Route::get('/insert/{user}', [UserController::class, 'inserUser']);
+Route::post('/insert/user', [UserController::class, 'inserUser']);
 
-Route::get('/addres', [AddressController::class, 'index']);
-Route::get('/addres/{id}', [AddressController::class, 'findOne']);
-Route::get('/address/add/{address}', [AddressController::class, 'addUser']);
+
+Route::get('/address', [AddressController::class, 'index']);
+Route::get('/address/{id}', [AddressController::class, 'findOne']);
+Route::post('/address/newadress', [AddressController::class, 'addAdress']);
+
 

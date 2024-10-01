@@ -14,15 +14,17 @@ class UserController extends Controller
 
     public function findOne(Request $r) {
         $users = User::find($r->id);
-        if($r->id != $r) {
-            echo 'O Usuario nãoi existe';
-        } 
-       
-        return $users;
+        return $users->address;
     }
 
     public function inserUser(Request $r) {
+        $new_user = $r->only(['name', 'email','password']);
 
+        $user = User::create($new_user);
+
+        return $user;
+
+     
     }
 
 }
