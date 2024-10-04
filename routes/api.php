@@ -1,23 +1,20 @@
 <?php
 
+use App\Http\Controllers\CobrancaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AddressController;
-use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\EnderecosController;
 
-Route::get('/users', [UserController::class, 'index']);
-Route::get('users/{id}', [UserController::class, 'findOne']);
-Route::post('/insert/user', [UserController::class, 'inserUser']);
+Route::get('usuarios/', [UsuarioController::class, 'index']);
+Route::get('usuarios/{id}', [UsuarioController::class, 'unicoUsuario']);
+Route::post('usuarios/novo', [UsuarioController::class, 'novoUsuario']);
 
-
-Route::get('/address', [AddressController::class, 'index']);
-Route::get('/address/{id}', [AddressController::class, 'findOne']);
-Route::post('/address/newadress', [AddressController::class, 'addAdress']);
+Route::get('enderecos', [EnderecosController::class, 'index']);
+Route::get('enderecos/{id}', [EnderecosController::class, 'unicoEndereco']);
+Route::post('enderecos/novo', [EnderecosController::class, 'novoEndereco']);
 
 
-Route::get('/invoice/show/{id}', [InvoiceController::class, 'invoiceShow']);
-
-Route::get('/invoice/show', [InvoiceController::class, 'invoiceShowAll']);
-
-Route::post('/invoice/insert', [InvoiceController::class, 'invoiceInsert']);
+Route::get('cobranca', [CobrancaController::class, 'index']);
+Route::post('cobranca/nova', [CobrancaController::class, 'novaCobranca']);
+Route::get('cobrancas/{id}', [CobrancaController::class, 'cobrancaId']);

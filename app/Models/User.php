@@ -3,7 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Address;
+use App\Models\Endereco;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,7 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        "address_id"
     ];
 
     /**
@@ -47,11 +46,8 @@ class User extends Authenticatable
         ];
     }
 
-
-    public function address() {
-        return $this->hasOne(Address::class, 'id', 'address_id');
+    public function enderecosMany() {
+        return $this->hasMany(Endereco::class);
     }
-
-  
 
 }
